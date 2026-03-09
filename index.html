@@ -4,8 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Issues Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>GitHub Issues Trackergit init</h1>
+
+
+
+
+
+<body class="bg-gray-100 w-11/12 mx-auto ">
+
+<!-- Navbar -->
+
+<nav class="flex justify-between bg-white p-4 shadow">
+    <div class="flex center">
+       <img class="w-10 h-10" src="assets/github-logo.png" alt="">
+        <h1 class="font-bold text-xl">GitHub Issues Tracker</h1>
+    </div>
+
+
+
+<div>
+
+<input id="searchInput" class="border p-1" placeholder="Search issue">
+
+<button onclick="searchIssue()" class="bg-blue-500 text-white px-3 py-1">
+    
+        New issue
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- Tabs -->
+
+<div class="flex gap-4 p-4 ">
+
+<button onclick="loadIssues('all')" class="tabBtn bg-blue-500 text-white px-4 py-1">
+All
+</button>
+
+<button onclick="loadIssues('open')" class="tabBtn bg-gray-200 px-4 py-1">
+Open
+</button>
+
+<button onclick="loadIssues('closed')" class="tabBtn bg-gray-200 px-4 py-1">
+Closed
+</button>
+
+</div>
+
+
+<!-- Spinner -->
+
+<div id="spinner" class="text-center hidden">
+
+Loading...
+
+</div>
+
+
+<!-- Issue Container -->
+
+<div id="issueContainer" class="grid grid-cols-4 gap-4 p-4"></div>
+
+
+<!-- Modal -->
+
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+
+<div class="bg-white p-6 w-96 rounded">
+
+<h2 id="modalTitle" class="text-xl font-bold"></h2>
+
+<p id="modalDesc"></p>
+
+<p id="modalAuthor"></p>
+
+<p id="modalPriority"></p>
+
+<p id="modalDate"></p>
+
+<button onclick="closeModal()" class="bg-red-500 text-white px-3 py-1 mt-3">
+Close
+</button>
+
+</div>
+
+</div>
+
+<script src="script/app.js"></script>
+
 </body>
+
 </html>
